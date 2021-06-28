@@ -27,5 +27,4 @@ private
 def service_params
   params.require(:service).permit(:duration, :date, :price, :type)
 end
-
 end
