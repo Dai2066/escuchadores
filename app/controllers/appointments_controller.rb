@@ -23,8 +23,16 @@ class AppointmentsController < ApplicationController
     else
       render :new
     end
-    
   end
+
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.delete
+    redirect_to services_path
+    flash[:notice] = "Destruiste to booking"
+  end
+
       
      private
       
