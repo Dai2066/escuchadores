@@ -9,22 +9,26 @@ class AppointmentsController < ApplicationController
   end
       
   def new 
+    @service = Service.find(params[:service_id])
     @appointment = Appointment.new
   end
       
   def create
-    @appointment = Appointment.new(appointment_params)
+    @appointment = Appointment.new()
     @appointment.user = current_user
-        if @appointment.save
-            redirect_to service_path(@appointment)
-        else
-           render :new
-          end       
-      end
+    service = Service.find(params[:service_id])
+    @appointment.service = service
+    if @appointment.save
+      redirect_to service_path(service)
+    else
+      render :new
+    end
+    
+  end
       
      private
       
   def appointment_params
-    params.require(:service).permit(:user_id, :service_id,)
+    params.require(:service).permit(:user_id, :service_id)
     end
 end
