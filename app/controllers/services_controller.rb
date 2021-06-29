@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+skip_before_action :authenticate_user!, only: [:index, :show]
 
 def index
   @services = Service.all    
@@ -25,6 +26,6 @@ end
 private
 
 def service_params
-  params.require(:service).permit(:duration, :date, :price, :type)
+  params.require(:service).permit(:duration, :start_time, :price, :plan, :place)
 end
 end

@@ -1,9 +1,10 @@
+    <h1>Crear nuevo servicio</h1>
+    
     <%= simple_form_for @service do |f| %>
 	  <%= f.input :start_time %>
       <%= f.input :duration %>
-	  <%= f.input :date %>
-	  <%= f.input :start_time %>
-	  <%= f.input :start_time %>
-	  <%= f.input :start_time %>
+	  <%= f.input :place %>
+	  <%= f.input :plan %>
+	  <%= f.input :price %>
 	  <%= f.submit "Crear servicio!" %>
 	<% end %>
