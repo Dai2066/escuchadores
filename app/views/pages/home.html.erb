@@ -2,47 +2,26 @@
   <div class="container">
     <h1>¿Estás buscando alguien que te acompañe?</h1>
     <p>Escucharte en silencio, caminar juntos, ir a la iglesia y mucho más. </p>
-    <a class="btn btn-gradient" href="#">Descubrir más</a>
+    <%= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
   </div>
 </div>
 <div class="container">
     <h2 class = "text-center mt-5">Populares</h2>
+    
     <div class="cards mt-5">
+    <% @services.each do |service| %>
     <div class="card-trip">
         <img src="https://images.unsplash.com/photo-1555696958-c5049b866f6f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80" />
-        <div class="card-trip-infos">
+           <div class="card-trip-infos">
             <div>
-            <h2>Te acompaño a la iglesia</h2>
-            <%= link_to "Description", service_path(:id) %>
+            <h2><%=  service.plan %></h2>
+            <%= link_to "Description", service_path(service) %>
             </div>
-            <h2 class="card-trip-pricing">USD 10</h2>
+            <h2 class="card-trip-pricing"><%=  service.price %></h2>
             <img src="https://avatars.githubusercontent.com/u/82399802?v=4" class="card-trip-user avatar-bordered" />
         </div>
         </div>
-
-        <div class="card-trip">
-        <img src="https://images.unsplash.com/photo-1564396345411-16cff04dad31?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=626&q=80" />
-        <div class="card-trip-infos">
-            <div>
-            <h2>Te acompaño a caminar</h2>
-            <%= link_to "Description", services_path %>
-            </div>
-            <h2 class="card-trip-pricing">USD 10</h2>
-            <img src="https://avatars.githubusercontent.com/u/82399802?v=4" class="card-trip-user avatar-bordered" />
-        </div>
-        </div>
-
-        <div class="card-trip">
-        <img src="https://images.unsplash.com/photo-1469237559036-c4645cda1a05?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80" />
-        <div class="card-trip-infos">
-            <div>
-            <h2>Te acompaño a existir</h2>
-            <%= link_to "Description", services_path %>
-            </div>
-            <h2 class="card-trip-pricing">USD 10</h2>
-            <img src="https://avatars.githubusercontent.com/u/82399802?v=4" class="card-trip-user avatar-bordered" />
-        </div>
-        </div>
+        <% end %>
     </div>
 </div>    
 
