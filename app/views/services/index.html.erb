@@ -1,0 +1,12 @@
+
+
+<ul>
+  <% @services.each do |service|  %>
+    <li><%= service.plan  %></li>  
+    <li><%= service.price %></li>
+    <li><%= service.duration %></li>
+    <li><%= service.place %></li>
+    <%= link_to "Crear appointment", new_service_appointment_path(service) %>
+    <% end %> 
+</ul>
+
