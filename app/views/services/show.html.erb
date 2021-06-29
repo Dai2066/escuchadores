@@ -1,8 +1,17 @@
-<h1>Show</h1>
+<h1>Detalles de servicio</h1>
+<h2><%= @service.plan %></h2>
+<h2><%= @service.price %></h2>
+<h2><%= @service.start_time %></h2>
+<h2><%= @service.user.first_name %></h2>
 
+
+<br>
+
+<h1>Detalles de appointment</h1>
 <ul class = "list-group"></ul>
   <% @service.appointments.each do |appointment| %>
-    <li class = "list-group-item"><%= appointment.content %></li>
+    <li class = "list-group-item"> usuario = <%= appointment.user.email %> </li>
+    <li class = "list-group-item"> <%= appointment.user.first_name %> </li>
   <% end  %>
 </ul>
 
