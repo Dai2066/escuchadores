@@ -16,9 +16,9 @@ user1.save
 user2 = User.new(email: "456@abc.com", password: "123456789", first_name: "Peter", last_name: "Clears", phone_number: 1234567890)
 user2.save
 
-service1 = Service.new(start_time: DateTime.now, duration: 1, date: Date.new, place: "calle falsa 123", price: 5, user: user1 )
+service1 = Service.new(start_time: DateTime.now, duration: 1, place: "calle falsa 123", price: 5, user: user1, plan: "ir al parque" )
 service1.save
-service2 = Service.new(start_time: DateTime.now, duration: 1, date: Date.new, place: "calle mas falsa 123", price: 6, user: user1 )  
+service2 = Service.new(start_time: DateTime.now, duration: 1, place: "calle mas falsa 123", price: 6, user: user1, plan: "tomar un cafe" )  
 service2.save
 
 appointment1 = Appointment.new(service: service1, user: user2)
