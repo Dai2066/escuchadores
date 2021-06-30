@@ -12,6 +12,7 @@
 <div class = "container">
 
   <h3>Detalles del servicio ofrecido:</h1>
+  <br>
   <h6>Plan: <strong> <%= @service.plan.capitalize %></h6> </strong>
   <h6>Precio en Pesos: <strong><%= @service.price %></h6></strong>
   <h6>Hora de inicio: <strong><%= @service.start_time.strftime('%a %d %b %Y') %></h6></strong>
@@ -23,6 +24,5 @@
 
 <div class = "container">
   <%#= link_to "Generar appointment", new_service_appointment_path(@service) %>
-  <br>
-  <%= link_to "Agendar evento", new_service_appointment_path(@service), class: "btn btn-gradient" %>
+  <%= link_to "Agendar servicio", new_service_appointment_path(@service), class: "btn btn-gradient" %>
 </div>

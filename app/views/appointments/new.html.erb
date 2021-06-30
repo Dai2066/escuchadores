@@ -1,7 +1,25 @@
-<h1>Crear nuevo appointment</h1>
-
-<%= simple_form_for [@service, @appointment] do |f| %>
-<%= f.submit %>
-<% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://datacated.com/wp-content/uploads/2019/01/happy.jpg);">
+  <h1 class = "text-center mt-5" style="color: white">Reservar servicio disponible</h1>
+</div>
+<br>
+<div class="container" >
+  <h5>El escuchador seleccionado recibira tu correo.</h5>
+  <h5>Si necesitas cancelar tu cita recuerda hacerlo con <strong> al menos 24 horas de antelación</strong>.</h5>
+  <br>
+  <h5>Esto para que otro usuario tenga posibilidad de tomarla.</h5>
+  <br>
+  <h5>Por favor confirma los detalles de tu cita antes de proceder:</h5>
+  <br>
+    <h6>Plan: <strong> <%= @service.plan.capitalize %></h6> </strong>
+    <h6>Precio en Pesos: <strong><%= @service.price %></h6></strong>
+    <h6>Hora de inicio: <strong><%= @service.start_time.strftime('%a %d %b %Y') %></h6></strong>
+    <h6>Horas disponible: <strong><%= @service.duration %></h6></strong>
+    <h6>Lugar: <strong><%= @service.place %></h6></strong>
+    <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
+  <br>
+  <%= simple_form_for [@service, @appointment] do |f| %>
+  <%= f.submit 'Agendar servicio', class: "btn btn-gradient" %>
+  <% end %>
+</div>
 
 
