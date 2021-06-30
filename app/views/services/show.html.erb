@@ -3,6 +3,7 @@
 <h2><%= @service.price %></h2>
 <h2><%= @service.start_time %></h2>
 <h2><%= @service.user.first_name %></h2>
+<%= cl_image_tag @service.photo.key, height: 300, width: 400, crop: :fill %>
 
 
 <br>
