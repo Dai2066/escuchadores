@@ -1,9 +1,17 @@
-<h1>Reservar servicio disponible</h1>
-<p>El escuchador seleccionado recibira tu informacion de correo
-si necesitas cancelar tu cita recuerda hacerlo con al menos 24 horas.
-</p>
-<p>Esto para que otro usuario tenga posibilidad de tomarla.</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://datacated.com/wp-content/uploads/2019/01/happy.jpg);">
+  <h1 class = "text-center mt-5" style="color: white">Reservar servicio disponible</h1>
+</div>
+<br>
+<br>
+<br>
+<h3>El escuchador seleccionado recibira tu informacion de correo</h3>
+<h3>Si necesitas cancelar tu cita recuerda hacerlo con <strong> al menos 24 horas de antelación</strong>.</h3>
+<br>
+<h3>Esto para que otro usuario tenga posibilidad de tomarla.</h3>
+<br><br>
 
+<h3>Por favor confirma los detalles de tu cita antes de proceder:</h3>
+<br>
 <ul>
     <li><%= @service.plan  %></li>  
     <li><%= @service.price %></li>
@@ -12,7 +20,7 @@ si necesitas cancelar tu cita recuerda hacerlo con al menos 24 horas.
 </ul>
 
 <%= simple_form_for [@service, @appointment] do |f| %>
-<%= f.submit %>
+<%= f.submit 'Asignar servicio' %>
 <% end %>
 
 
