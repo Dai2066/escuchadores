@@ -29,6 +29,6 @@ end
 private
 
 def service_params
-  params.require(:service).permit(:duration, :start_time, :price, :plan, :place)
+  params.require(:service).permit(:duration, :start_time, :price, :plan, :place, :photo)
 end
 end
