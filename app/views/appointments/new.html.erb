@@ -1,4 +1,15 @@
-<h1>Crear nuevo appointment</h1>
+<h1>Reservar servicio disponible</h1>
+<p>El escuchador seleccionado recibira tu informacion de correo
+si necesitas cancelar tu cita recuerda hacerlo con al menos 24 horas.
+</p>
+<p>Esto para que otro usuario tenga posibilidad de tomarla.</p>
+
+<ul>
+    <li><%= @service.plan  %></li>  
+    <li><%= @service.price %></li>
+    <li><%= @service.duration %></li>
+    <li><%= @service.place %></li>
+</ul>
 
 <%= simple_form_for [@service, @appointment] do |f| %>
 <%= f.submit %>
