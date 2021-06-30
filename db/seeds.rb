@@ -122,7 +122,7 @@ service1.photo.attach(io: file_service1, filename: 'test1.png', content_type: 'i
 service1.save
 
 #caminar
-service2 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "a caminar" )
+service2 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user2, plan: "a caminar" )
 service2.photo.attach(io: file_service2, filename: 'test2.png', content_type: 'image/png')
 service2.save
 
@@ -157,7 +157,7 @@ service8.photo.attach(io: file_service8, filename: 'test2.png', content_type: 'i
 service8.save
 
 #a estudiar
-service9 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "a estudiar" )
+service9 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user2, plan: "a estudiar" )
 service9.photo.attach(io: file_service9, filename: 'test2.png', content_type: 'image/png')
 service9.save
 

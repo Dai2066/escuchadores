@@ -15,7 +15,7 @@
   <br>
   <h6>Plan: <strong> <%= @service.plan.capitalize %></h6> </strong>
   <h6>Precio en Pesos: <strong><%= @service.price %></h6></strong>
-  <h6>Hora de inicio: <strong><%= @service.start_time.strftime('%a %d %b %Y') %></h6></strong>
+  <h6>Hora de inicio: <strong><%= @service.start_time %></h6></strong>
   <h6>Horas disponible: <strong><%= @service.duration %></h6></strong>
   <h6>Lugar: <strong><%= @service.place %></h6></strong>
   <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
