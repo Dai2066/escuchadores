@@ -1,22 +1,28 @@
-<h1>Detalles de servicio</h1>
-<h2><%= @service.plan %></h2>
-<h2><%= @service.price %></h2>
-<h2><%= @service.start_time %></h2>
-<h2><%= @service.user.first_name %></h2>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1490462988459-a92f695ad4a1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80);">
+  <div class="container">
+    <h1>Estás viendo los servicios de:</h1>
+    <p><%= @service.user.first_name %>, <%= @service.user.last_name %> </p>
+    <%#= link_to "Volver al inicio!", root_path, class: "btn btn-gradient"%>
+    <%#= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
+  </div>
+</div>
 
 <br>
 
-<h1>Detalles de appointment</h1>
-  <% @service.appointments.each do |appointment| %>
-    <ul class = "list-group"></ul>
-      <li class = "list-group-item"> usuario = <%= appointment.user.email %> </li>
-      <li class = "list-group-item"> <%= appointment.user.first_name %> </li>
-      <%= link_to "Destruir appointment",  appointment_path(appointment), method: :delete, data: { confirm: "Está seguro que quiere eliminar el appointment"} %>
-    </ul>
-    <br>
-  <% end  %>
+<div class = "container">
 
-  <%= link_to "Volver al index", services_path %>
-  <%= link_to "Generar appointment", new_service_appointment_path(@service) %>
+  <h3>Detalles del servicio ofrecido:</h1>
+  <h6>Plan: <strong> <%= @service.plan.capitalize %></h6> </strong>
+  <h6>Precio en Pesos: <strong><%= @service.price %></h6></strong>
+  <h6>Hora de inicio: <strong><%= @service.start_time.strftime('%a %d %b %Y') %></h6></strong>
+  <h6>Horas disponible: <strong><%= @service.duration %></h6></strong>
+  <h6>Lugar: <strong><%= @service.place %></h6></strong>
+  <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
+</div>
+<br>
 
+<div class = "container">
+  <%#= link_to "Generar appointment", new_service_appointment_path(@service) %>
+  <br>
+  <%= link_to "Agendar evento", new_service_appointment_path(@service), class: "btn btn-gradient" %>
+</div>
