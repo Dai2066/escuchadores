@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  get "confirmation", to: "pages#confirmation"
+
   devise_for :users
 
   resources :services do

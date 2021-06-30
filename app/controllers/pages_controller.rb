@@ -3,6 +3,11 @@ class PagesController < ApplicationController
 
   def home
     @services = Service.all.first(3)
+    @users = User.all
   end
 
+  def confirmation
+  
+  end
+    
 end
