@@ -1,12 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1084793354%2F960x0.jpg%3Ffit%3Dscale);">
+    <h1 class = "text-center mt-5" style="color: white">Todos los servicios </h1>
+    </div>
 
 
-<ul>
-  <% @services.each do |service|  %>
-    <li><%= service.plan  %></li>  
-    <li><%= service.price %></li>
-    <li><%= service.duration %></li>
-    <li><%= service.place %></li>
-    <%= link_to "Crear appointment", new_service_appointment_path(service) %>
-    <% end %> 
-</ul>
+<div class="container">
+    
+    <div class="cards mt-5">
+    <% @services.each do |service| %>
+    <div class="card-trip">
+        <img src="https://images.unsplash.com/photo-1555696958-c5049b866f6f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80" />
+           <div class="card-trip-infos">
+            <div>
+            <h2><%=  service.plan %></h2>
+            <%= link_to "Ver mas..", service_path(service) %>
+            </div>
+            <h2 class="card-trip-pricing">$<%=  service.price %></h2>
+            <img src="https://avatars.githubusercontent.com/u/82399802?v=4" class="card-trip-user avatar-bordered" />
+        </div>
+        </div>
+        <% end %>
+    </div>
+</div>    
 
