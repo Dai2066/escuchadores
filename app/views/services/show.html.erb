@@ -21,8 +21,8 @@
     <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
   </div>
 
-  <div id="map" class="w-5"
-    style="width: 60%; height: 300px;"
+  <div id="map" 
+    style="width: 60%; height: 300px; margin-top: 30px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
