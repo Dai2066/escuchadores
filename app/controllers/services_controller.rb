@@ -2,8 +2,13 @@ class ServicesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 
 def index
-  @services = policy_scope(Service)
+  if params[:query].present?
+    @services = policy_scope(Service).where(place: params[:query])
+  else
+    @services = policy_scope(Service)
+  end
   @users = User.all
+  
 end
 
 def show
@@ -14,6 +19,16 @@ end
 def new 
   @service = Service.new
   authorize @service
+end
+
+
+def search
+  @services = policy_scope(Service)
+  if params[:query].present?
+    @services = Service.where(place: params[:query])
+  else
+    @services = policy_scope(Service)
+  end
 end
 
 def create
