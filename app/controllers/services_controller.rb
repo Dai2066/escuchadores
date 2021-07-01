@@ -9,12 +9,10 @@ end
 def show
   @service = Service.find(params[:id])
   authorize @service
-
-  @markers = @service.geocoded.map do |service|
-    {
-      lat: service.latitude,
-      lng: service.longitude
-    }
+  
+  @markers = 
+    [ lat: @service.geocode[0],
+      lng: @service.geocode[1]] 
 end
 
 def new 
@@ -35,7 +33,7 @@ end
 
 private
 
-def service_params
-  params.require(:service).permit(:duration, :start_time, :price, :plan, :place, :photo)
-end
+  def service_params
+    params.require(:service).permit(:duration, :start_time, :price, :plan, :place, :photo)
+  end
 end
