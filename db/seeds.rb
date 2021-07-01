@@ -18,33 +18,32 @@ User.destroy_all
 puts "creating seeds"
 
 #UPLOAD SERVICE PHOTOS
-
 #iglesia
-file_service1 = URI.open('https://images.unsplash.com/photo-1555696958-c5049b866f6f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80')
+file_service1 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080044/vm2w84clctwk14nn8yn3zxyzfxr2.jpg')
 
 #caminar
-file_service2 = URI.open('https://images.unsplash.com/photo-1564396345411-16cff04dad31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=626&q=80')
+file_service2 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080045/svyduxoi914uwqnp5xytzyp23wg8.jpg')
 
-#existir
-file_service3 = URI.open('https://images.unsplash.com/photo-1469237559036-c4645cda1a05?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80')
+ #existir
+ file_service3 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080046/vcqxcj97h4usnm9949mboz9k19lt.jpg')
 
-#pasear a tu perro
-file_service4 = URI.open('https://images.unsplash.com/photo-1505333495796-5b46a56bec90?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHBldCUyMGElMjBkb2clMjBmcmllbmRzfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+# #pasear a tu perro
+ file_service4 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080047/p4z8qa9lfp2ufg40dln6rjaqdgs8.jpg')
 
-#tomar café
-file_service5 = URI.open('https://images.unsplash.com/photo-1459257868276-5e65389e2722?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y29mZWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+# #tomar café
+file_service5 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080048/7pybw3rd7g5poythexfxgw5igo8p.jpg')
 
-#cenar con tu familia
-file_service6 = URI.open('https://images.unsplash.com/photo-1578496780896-7081cc23c111?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8ZmFtaWx5JTIwZGlubmVyfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+# #cenar con tu familia
+ file_service6 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080050/2ngflg1chvc04k1u1bb0hd0qc540.jpg')
 
-#a correr
-file_service7 = URI.open('https://images.unsplash.com/photo-1456613820599-bfe244172af5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHJ1bnxlbnwwfDB8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+# #a correr
+ file_service7 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080051/j4ij3hqafb3hyg9j4s89wb7k9u4d.jpg')
 
-#al museo
-file_service8 = URI.open('https://images.unsplash.com/photo-1554907984-15263bfd63bd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bXVzZXVtfGVufDB8MHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+# #al museo
+ file_service8 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080052/ti3pgji7vitz9zlo1gedpi145m2y.jpg')
 
-#a estudiar
-file_service9 = URI.open('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3R1ZHl8ZW58MHwwfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60')
+# #a estudiar
+ file_service9 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080053/6utt08pzkqkquv32gq38j1zzl7mn.jpg')
 
 
 #UPLOAD AVATAR PHOTOS
@@ -117,58 +116,58 @@ user9.save
 #CREATE SERVICES
 
 #iglesia
-service1 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 5, user: user1, plan: "a la iglesia" )
+service1 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: "Buenos Aires", price: 700, user: user1, plan: "Soy teologo, me encanta hablar de temas espirituales. Tengo 50 años" )
 service1.photo.attach(io: file_service1, filename: 'test1.png', content_type: 'image/png')
 service1.save
 
 #caminar
-service2 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user2, plan: "a caminar" )
+service2 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 2, place: "Buenos Aires", price: 750, user: user2, plan: "Me gusta mucho estar al aire libre, largas conversaciones, hacer amigos" )
 service2.photo.attach(io: file_service2, filename: 'test2.png', content_type: 'image/png')
 service2.save
 
-#existir
-service3 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "a existir" )
-service3.photo.attach(io: file_service3, filename: 'test2.png', content_type: 'image/png')
-service3.save
+# #existir
+ service3 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: "Buenos Aires", price: 800, user: user1, plan: "Me encanta meditar, conectar con otros a nivel personal, padre de 2 hijos" )
+ service3.photo.attach(io: file_service3, filename: 'test2.png', content_type: 'image/png')
+ service3.save
 
-#pasear a tu perro
-service4 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "a pasear al perro" )
-service4.photo.attach(io: file_service4, filename: 'test2.png', content_type: 'image/png')
-service4.save
+# #pasear a tu perro
+ service4 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: "Mendoza", price: 950, user: user1, plan: "Me encantan los animales, soy veterinario desde hace mas de 10 años" )
+ service4.photo.attach(io: file_service4, filename: 'test2.png', content_type: 'image/png')
+ service4.save
 
-#tomar café
-service5 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "a tomar un café" )
-service5.photo.attach(io: file_service5, filename: 'test2.png', content_type: 'image/png')
-service5.save
+# #tomar café
+ service5 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: "Mendoza", price: 700, user: user1, plan: "Soy barista, disfruto mucho la compañia de otros, socializar, ir de fiesta.." )
+ service5.photo.attach(io: file_service5, filename: 'test2.png', content_type: 'image/png')
+ service5.save
 
-#cena con tu familia
-service6 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "a cenar con tu flia" )
-service6.photo.attach(io: file_service6, filename: 'test2.png', content_type: 'image/png')
-service6.save
+# #cena con tu familia
+ service6 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: "Cordoba", price: 650, user: user1, plan: "Me desempeño como terapeuta hace muchos años, busco poder compartir con tu circulo social (amigos, familia, etc)" )
+ service6.photo.attach(io: file_service6, filename: 'test2.png', content_type: 'image/png')
+ service6.save
 
-#correr
-service7 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "a correr" )
-service7.photo.attach(io: file_service7, filename: 'test2.png', content_type: 'image/png')
-service7.save
+# #correr
+ service7 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 2, place: "Cordoba", price: 850, user: user1, plan: "Amo el deporte! nadar, surfear, el futbol, pero en especial correr y hacer trekking, prefiero practicar deporte con otros" )
+ service7.photo.attach(io: file_service7, filename: 'test2.png', content_type: 'image/png')
+ service7.save
 
-#al museo
-service8 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user1, plan: "al museo" )
+# #al museo
+service8 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 2, place: "Cordoba", price: 800, user: user1, plan: "Mis cosas favoritas son la poesia, los libros, el arte. Prefiero hablar de temas culturales siempre que puedo" )
 service8.photo.attach(io: file_service8, filename: 'test2.png', content_type: 'image/png')
 service8.save
 
-#a estudiar
-service9 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 1, place: Faker::Address.street_address, price: 6, user: user2, plan: "a estudiar" )
-service9.photo.attach(io: file_service9, filename: 'test2.png', content_type: 'image/png')
-service9.save
+# #a estudiar
+ service9 = Service.new(start_time: Faker::Time.forward(days: 5,  period: :evening, format: :long), duration: 3, place: "Rosario", price: 1000, user: user2, plan: "Soy docente, trato de ayudar a que las personas aprenden de la forma mas facil posible" )
+ service9.photo.attach(io: file_service9, filename: 'test2.png', content_type: 'image/png')
+ service9.save
 
 
-#CREATE APPOINTMENTS
+# #CREATE APPOINTMENTS
 
-appointment1 = Appointment.new(service: service1, user: user1)
-appointment1.save
+ appointment1 = Appointment.new(service: service1, user: user1)
+ appointment1.save
 
-appointment2 = Appointment.new(service: service2, user: user2)
-appointment2.save
+ appointment2 = Appointment.new(service: service2, user: user2)
+ appointment2.save
 
 #FINISH
 puts "finished"

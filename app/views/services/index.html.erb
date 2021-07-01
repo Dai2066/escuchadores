@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F1084793354%2F960x0.jpg%3Ffit%3Dscale);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.showcaseocala.com/wp-content/uploads/2020/06/Review_Feature.jpg);">
     <h1 class = "text-center mt-5" style="color: white">Todos los servicios </h1>
     </div>
 
@@ -8,21 +8,29 @@
 
     <div class="cards mt-5">
     <% @services.each do |service| %>
+    <%= link_to service_path(service) do %>
     <div class="card-trip">
+    
         <%= cl_image_tag service.photo.key %>
             <div class="card-trip-infos">
             <div>
-            <h2>Te acompaño <%=  service.plan %></h2>
-            <%= link_to "Ver más..", service_path(service) %>
+            <h2><%=  service.plan %></h2>
+            <%# <%= link_to "Ver más..", service_path(service) %>
             </div>
-            <h2 class="card-trip-pricing">$<%=  service.price %></h2>            
+            <h2 class="card-trip-pricing">$<%=  service.price.to_i %></h2>            
             <% user = @users.sample %>
               <%= cl_image_tag user.photo.key, class: "card-trip-user avatar-bordered" %>                                  
+        
         </div>
+        
         </div>
         <% end %>
+         <% end %>
+        
     </div>
+    
 </div>
+
 
 
 
