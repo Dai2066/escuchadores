@@ -9,6 +9,12 @@ end
 def show
   @service = Service.find(params[:id])
   authorize @service
+
+  @markers = @service.geocoded.map do |service|
+    {
+      lat: service.latitude,
+      lng: service.longitude
+    }
 end
 
 def new 
