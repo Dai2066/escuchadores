@@ -16,6 +16,12 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+// JavaScript import for Peter
+import { initFlatpickr } from "../plugins/flatpickr";
+
+initFlatpickr();
+
+
 
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
