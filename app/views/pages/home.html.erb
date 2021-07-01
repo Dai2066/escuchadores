@@ -2,7 +2,20 @@
   <div class="container">
     <h1>¿Estás buscando alguien que te acompañe?</h1>
     <p>Escucharte en silencio, caminar juntos, ir a la iglesia y mucho más. </p>
-    <%= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
+    
+    <%= form_tag services_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control w-25",
+      placeholder: "Ciudad"
+      %>
+      <br>
+      <%= submit_tag "Buscar", class: "btn btn-gradient" %>
+    <% end %>
+    
+    
+    
+    <%#= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
   </div>
 </div>
 <div class="container">
@@ -26,4 +39,16 @@
         <% end %>
     </div>
 </div>    
+
+
+
+<!--div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Buca a tu escuchador:</h2>
+
+    <%= simple_form_for root_path ,url: services_path , method: "get" do |f| %>
+      <%= f.input :query, placeholder: "Ciudad", label: false, required: false %>
+      <%= f.input :start_time, placeholder: "Fecha", as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Buscar", class: "btn btn-primary" %>
+    <% end %>
+  </div-->
 

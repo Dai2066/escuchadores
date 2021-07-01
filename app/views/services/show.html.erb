@@ -4,25 +4,96 @@
     <p><%= @service.user.first_name %>, <%= @service.user.last_name %> </p>
     <%#= link_to "Volver al inicio!", root_path, class: "btn btn-gradient"%>
     <%#= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
+
+
+  <%= form_tag services_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control w-25",
+      placeholder: "Ciudad"
+      %>
+      <%= datetime_local_field :date,
+      params[:date],
+      class: "form-control w-25",
+      placeholder: "Fecha"
+    %>
+
+    <br>
+    <%= submit_tag "Buscar", class: "btn btn-gradient" %>
+  <% end %>
+    
+    <br>
   </div>
 </div>
 
-<br>
 
+<br>
 <div class = "container">
+
+<h3>Detalles del servicio ofrecido:</h1>
+<div class="card mb-3" style="max-width: 1200px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <%= cl_image_tag @service.photo.key, class: "img-fluid rounded-start" %>  
+      
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+
+        <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
+        <h6>Descripción: <strong> <%= @service.plan.capitalize %></h6> </strong>
+        <h6>Precio Pesos ARG, por hora: <strong>$ <%= @service.price.to_i %></h6></strong>
+        <h6>Fecha: <strong><%= @service.start_time.strftime('%a %d %b %Y') %></h6></strong>
+        <h6>Disponibilidad: <strong><%= @service.duration.to_i %> hora(s)</h6></strong>
+        <h6>Lugar: <strong><%= @service.place %></h6></strong>   
+        <%= link_to "Agendar servicio", new_service_appointment_path(@service), class: "btn btn-gradient" %>
+      </div>
+    </div>
+  </div>
+  
+</div>
+        <p class="card-text"><small class="text-muted">Gracias por confiar en: <%= @service.user.first_name %> </small></p>
+
+</div>
+
+
+<!--div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Buca a tu escuchador:</h2>
+
+    <%= simple_form_for services_path , method: :get do |f| %>
+      <%= f.input :query, placeholder: "Ciudad", label: false, required: false %>
+      <%= f.input :start_time, placeholder: "Fecha", as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Buscar", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div-->
+
+
+
+<!--div class = "container">
+
+  <div class = "card-product-infos">
 
   <h3>Detalles del servicio ofrecido:</h1>
   <br>
-  <h6>Plan: <strong> <%= @service.plan.capitalize %></h6> </strong>
-  <h6>Precio en Pesos: <strong><%= @service.price %></h6></strong>
-  <h6>Hora de inicio: <strong><%= @service.start_time %></h6></strong>
-  <h6>Horas disponible: <strong><%= @service.duration %></h6></strong>
-  <h6>Lugar: <strong><%= @service.place %></h6></strong>
   <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
+  <h6>Descripción: <strong> <%= @service.plan.capitalize %></h6> </strong>
+  <h6>Precio Pesos ARG, por hora: <strong>$ <%= @service.price.to_i %></h6></strong>
+  <h6>Fecha: <strong><%= @service.start_time.strftime('%a %d %b %Y') %></h6></strong>
+  <h6>Horas disponible: <strong><%= @service.duration.to_i %></h6></strong>
+  <h6>Lugar: <strong><%= @service.place %></h6></strong>
+
+   
+   <%= cl_image_tag @service.photo.key, class: "img-thumbnail" %>
+  </div>
+  
+
+
 </div>
 <br>
 
 <div class = "container">
   <%#= link_to "Generar appointment", new_service_appointment_path(@service) %>
   <%= link_to "Agendar servicio", new_service_appointment_path(@service), class: "btn btn-gradient" %>
-</div>
+</div-->
