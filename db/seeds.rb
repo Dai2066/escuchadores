@@ -19,31 +19,31 @@ puts "creating seeds"
 
 #UPLOAD SERVICE PHOTOS
 #iglesia
-file_service1 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080044/vm2w84clctwk14nn8yn3zxyzfxr2.jpg')
+file_service1 = URI.open('https://i.imgur.com/MjNpekD.jpg')
 
 #caminar
-file_service2 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080045/svyduxoi914uwqnp5xytzyp23wg8.jpg')
+file_service2 = URI.open('https://i.imgur.com/e8ogYSv.jpg')
 
  #existir
- file_service3 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080046/vcqxcj97h4usnm9949mboz9k19lt.jpg')
+file_service3 = URI.open('https://i.imgur.com/ThhaaOJ.jpg')
 
 # #pasear a tu perro
- file_service4 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080047/p4z8qa9lfp2ufg40dln6rjaqdgs8.jpg')
+file_service4 = URI.open('https://i.imgur.com/KiPm4Y1.jpg')
 
 # #tomar café
-file_service5 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080048/7pybw3rd7g5poythexfxgw5igo8p.jpg')
+file_service5 = URI.open('https://i.imgur.com/rDNtPvU.jpg')
 
 # #cenar con tu familia
- file_service6 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080050/2ngflg1chvc04k1u1bb0hd0qc540.jpg')
+file_service6 = URI.open('https://i.imgur.com/ntfgNt0.jpg')
 
 # #a correr
- file_service7 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080051/j4ij3hqafb3hyg9j4s89wb7k9u4d.jpg')
+file_service7 = URI.open('https://i.imgur.com/mvxlRBX.jpg')
 
 # #al museo
- file_service8 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080052/ti3pgji7vitz9zlo1gedpi145m2y.jpg')
+file_service8 = URI.open('https://i.imgur.com/7TnnzZc.jpg')
 
 # #a estudiar
- file_service9 = URI.open('https://res.cloudinary.com/dpgtrewfb/image/upload/v1625080053/6utt08pzkqkquv32gq38j1zzl7mn.jpg')
+file_service9 = URI.open('https://i.imgur.com/OpYYER3.jpg')
 
 
 #UPLOAD AVATAR PHOTOS
