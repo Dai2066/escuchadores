@@ -21,10 +21,6 @@
     <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
   <br>
   <%= simple_form_for [@service, @appointment] do |f| %>
-  <%= f.submit 'Agendar servicio', class: "btn btn-gradient" %>
-  <% Appointment.create(user: current_user, service: @service) %>
-  <%= link_to "Confirmacion servicio", confirmation_path(@service), class: "btn btn-gradient" %>
+    <%= f.submit 'Confirmación servicio', class: "btn btn-gradient" %>
   <% end %>
 </div>
-
-
