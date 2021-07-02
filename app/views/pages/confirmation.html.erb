@@ -8,7 +8,7 @@
   <br> 
   <% assigned_to_user = Appointment.select {|app| app.user == current_user } %>
   <% assigned_to_user.each do |app| %>
-
+  
    <div class="card mb-3 shadow p-3 bg-white  rounded w-50">
       <div class="row g-0">
         <div class="col-md-3">
@@ -32,10 +32,13 @@
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
-      </div>    
+      </div>
+      
+      <%= link_to "Borrar reserva", appointment_path(app.id), method: :delete, data: {confirm: "Está seguro que desea eliminar la reserva?"}, class:"btn btn-sm btn-danger" %>    
     </div>
   <% end %>
 </div>
+<br>
 
 
 
