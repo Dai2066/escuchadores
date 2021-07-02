@@ -2,20 +2,16 @@
   <div class="container">
     <h1>¿Estás buscando alguien que te acompañe?</h1>
     <p>Escucharte en silencio, caminar juntos, ir a la iglesia y mucho más. </p>
-    
-    <%= form_tag services_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control w-25",
-      placeholder: "Ciudad"
-      %>
-      <br>
-      <%= submit_tag "Buscar", class: "btn btn-gradient" %>
-    <% end %>
-    
-    
-    
-    <%#= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
+    <div></div>
+      <%= form_tag services_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control w-25",
+        placeholder: "Ciudad"
+        %>
+        <br>
+        <%= submit_tag "Buscar", class: "btn btn-gradient" %>
+      <% end %>
   </div>
 </div>
 <div class="container">
