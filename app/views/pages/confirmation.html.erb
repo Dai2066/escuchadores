@@ -1,23 +1,21 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://assets1.drugstorenews.com/styles/hero/s3/2021-06/handshake-hero.jpg?itok=moVjH2S4);">
 </div>
 <br>
-  <h5>Tu cita ha sido asignada exitosamente.</h5>
-  <h5>Tus citas actuales:</h5>
-  <br> 
+<div class="d-flex justify-content-between flex-column align-items-center" >
+
+  <h5>Mis citas actuales:</h5>
  
-  <% assigned_to_user = Appointment.select {|app| app.user == current_user} %>
+  <br> 
+  <% assigned_to_user = Appointment.select {|app| app.user == current_user } %>
   <% assigned_to_user.each do |app| %>
-
-<div class="container" >
-   <div class="card mb-3 shadow p-3 bg-white rounded" style="max-width: 1200px;">
+  
+   <div class="card mb-3 shadow p-3 bg-white  rounded w-50">
       <div class="row g-0">
-        <div class="col-md-4">
+        <div class="col-md-3">
           <%= cl_image_tag app.service.photo.key, class: "img-fluid rounded-start" %>  
-
         </div>
-        <div class="col-md-8">
+        <div class="col-md-5">
           <div class="card-body">
-
             <h6>Id del servicio: <%= app.service_id %></h6><h6>Id del usuario: <%= app.user_id %></h6>
             <h6>Nombre del escuchador: <strong><%= app.user.first_name %>, <%= app.user.last_name %></h6></strong>
             <h6>Descripción: <strong> <%= app.service.plan.capitalize %></h6> </strong>
@@ -27,19 +25,24 @@
             <h6>Lugar: <strong><%= app.service.place %></h6></strong>
           </div>
         </div>
-      </div>    
+        <div class="col-md-4">
+          <div id="map" class="rounded border border-secondary"
+            style="width: 100%; height: 300px"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+      
+      <%= link_to "Borrar reserva", appointment_path(app.id), method: :delete, data: {confirm: "Está seguro que desea eliminar la reserva?"}, class:"btn btn-sm btn-danger" %>    
     </div>
   <% end %>
 </div>
+<br>
 
 
 
 <!--
-<div id="map" class="rounded border border-secondary"
-        style="width: 100%; height: 300px"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
 
 
     <h5>Haz click abajo para seguir viendo otros servicios disponibles.</h5>

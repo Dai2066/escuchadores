@@ -11,13 +11,14 @@ class AppointmentsController < ApplicationController
   end
       
   def create
-    @appointment = Appointment.new()
-    @appointment.user = current_user
     service = Service.find(params[:service_id])
+    @appointment = Appointment.new(appointment_params.merge({ user_id: current_user.id }))
+    @appointment.user = current_user
     authorize @appointment
     @appointment.service = service
+    
     if @appointment.save
-      redirect_to service_path(service)
+      redirect_to confirmation_path(service)
     else
       render :new
     end
@@ -27,14 +28,14 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.delete
-    redirect_to services_path
-    flash[:notice] = "Destruiste to booking"
+    authorize @appointment
+    redirect_to confirmation_path
+    flash[:notice] = "Destruiste tu reserva"
   end
-
       
-     private
+  private
       
   def appointment_params
-    params.require(:service).permit(:user_id, :service_id)
-    end
+    params.permit(:service_id)
+  end
 end
