@@ -7,9 +7,8 @@ class PagesController < ApplicationController
   end
 
   def confirmation
+    @appointments = Appointment.all
   end
 
-  def profile
-  end
     
 end
