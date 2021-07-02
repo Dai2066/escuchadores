@@ -2,9 +2,9 @@
   <div class="container">
     <h1>¿Estás buscando alguien que te acompañe?</h1>
     <p>Escucharte en silencio, caminar juntos, ir a la iglesia y mucho más. </p>
-    
-    <%= form_tag services_path, method: :get do %>
-      <%= text_field_tag :query,
+    <div></div>
+      <%= form_tag services_path, method: :get do %>
+        <%= text_field_tag :query,
         params[:query],
         class: "form-control w-25",
         placeholder: "Ciudad"
