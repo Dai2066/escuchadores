@@ -9,9 +9,20 @@
         class: "form-control w-25",
         placeholder: "Ciudad"
         %>
-        <br>
-        <%= submit_tag "Buscar", class: "btn btn-gradient" %>
-      <% end %>
+        <%= date_field :date,
+        params[:date],
+        class: "form-control w-25",
+        placeholder: "Fecha"
+      %>
+    
+  <br>
+    <%= submit_tag "Buscar", class: "btn btn-gradient" %>
+
+
+    
+    
+    
+    <%#= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
   </div>
 </div>
 <div class="container">
@@ -54,3 +65,14 @@
     <% end %>
   </div-->
 
+  <%#= form_tag services_path, method: :get do %>
+  <!--
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control w-25",
+      placeholder: "Ciudad"
+      %>
+      <br>
+      <%= submit_tag "Buscar", class: "btn btn-gradient" %>
+    <% end %>
+-->

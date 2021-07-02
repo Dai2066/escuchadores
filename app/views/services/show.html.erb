@@ -2,27 +2,26 @@
   <div class="container">
     <h1>Estás viendo los servicios de:</h1>
     <p><%= @service.user.first_name %>, <%= @service.user.last_name %> </p>
-    <%#= link_to "Volver al inicio!", root_path, class: "btn btn-gradient"%>
-    <%#= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
-
-
-  <%= form_tag services_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control w-25",
-      placeholder: "Ciudad"
-      %>
-      <%= datetime_local_field :date,
-      params[:date],
-      class: "form-control w-25",
-      placeholder: "Fecha"
-    %>
-
-    <br>
-    <%= submit_tag "Buscar", class: "btn btn-gradient" %>
-  <% end %>
     
-    <br>
+
+    <h4>Seguir buscando</h4>
+      <%= form_tag services_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control w-25",
+        placeholder: "Ciudad"
+        %>
+        <%= date_field :date,
+        params[:date],
+        class: "form-control w-25",
+        placeholder: "Fecha"
+      %>
+
+  <br>
+    <%= submit_tag "Buscar", class: "btn btn-gradient" %>
+    <% end %>
+    
+  <br>
   </div>
 </div>
 
@@ -59,7 +58,7 @@
 
 
 
-<!--div class="container">
+<!--div class="container" >
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
     <h2>Buca a tu escuchador:</h2>
 
@@ -100,6 +99,8 @@
   <%= link_to "Agendar servicio", new_service_appointment_path(@service), class: "btn btn-gradient" %>
 
 </div-->
+<%#= link_to "Volver al inicio!", root_path, class: "btn btn-gradient"%>
+<%#= link_to "Descubrir más", services_path, class: "btn btn-gradient" %>
 
 </div>
 

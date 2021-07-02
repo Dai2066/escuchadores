@@ -11,14 +11,17 @@
   <br>
   <h6>A confirmar:</h6>
   <br>
-    <h6>Plan: <strong> <%= @service.plan.capitalize %></h6> </strong>
-    <h6>Precio en Pesos: <strong><%= @service.price %></h6></strong>
-    <h6>Hora de inicio: <strong><%= @service.start_time %></h6></strong>
-    <h6>Horas disponible: <strong><%= @service.duration %></h6></strong>
-    <h6>Lugar: <strong><%= @service.place %></h6></strong>
     <h6>Nombre del escuchador: <strong><%= @service.user.first_name %>, <%= @service.user.last_name %></h6></strong>
+    <h6>Descripción: <strong> <%= @service.plan.capitalize %></h6> </strong>
+    <h6>Precio en Pesos ARG: <strong> $ <%= @service.price.to_i %></h6></strong>
+    <h6>Fecha: <strong><%= @service.start_time.strftime('%a %d %b %Y') %></h6></strong>
+    <h6>Disponibilidad: <strong><%= @service.duration.to_i %> hora(s)</h6></strong>
+    <h6>Lugar: <strong><%= @service.place %></h6></strong>
   <br>
   <%= simple_form_for [@service, @appointment] do |f| %>
-    <%= f.submit 'Confirmación servicio', class: "btn btn-gradient" %>
+
+  <%= f.submit 'Volver', class: "btn btn-gradient" %>
+  <% Appointment.create(user: current_user, service: @service) %>
+  <%= link_to "Confirmar servicio", confirmation_path(@service), class: "btn btn-gradient" %>
   <% end %>
 </div>
