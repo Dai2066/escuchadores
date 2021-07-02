@@ -21,10 +21,9 @@
     <h6>Lugar: <strong><%= @service.place %></h6></strong>
   <br>
   <%= simple_form_for [@service, @appointment] do |f| %>
+
   <%= f.submit 'Volver', class: "btn btn-gradient" %>
   <% Appointment.create(user: current_user, service: @service) %>
   <%= link_to "Confirmar servicio", confirmation_path(@service), class: "btn btn-gradient" %>
   <% end %>
 </div>
-
-
