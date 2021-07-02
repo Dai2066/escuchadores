@@ -7,8 +7,12 @@ class PagesController < ApplicationController
   end
 
   def confirmation
-    @appointments = Appointment.all
-  end
-
-
+    @assigned_to_user = Appointment.select {|app| app.user == current_user }
+    @markers = []
+    @assigned_to_user.each do |app|
+    @markers << { lat: app.service.geocode[0],
+      lng: app.service.geocode[1]}
+    end
+  end  
+    
 end
