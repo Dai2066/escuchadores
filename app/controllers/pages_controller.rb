@@ -10,5 +10,5 @@ class PagesController < ApplicationController
     @appointments = Appointment.all
   end
 
-    
+
 end

@@ -2,8 +2,22 @@ class ServicesController < ApplicationController
 skip_before_action :authenticate_user!, only: [:index, :show]
 
 def index
-  if params[:query].present?
+  if params[:query].present? && params[:date].present? 
+    @services = []
+     policy_scope(Service).where(place: params[:query]).each do |service|
+      if service.start_time.strftime("%Y-%m-%d").include?(params[:date].first) 
+        @services << service
+      end
+   end
+  elsif params[:query].present?
     @services = policy_scope(Service).where(place: params[:query])
+  elsif params[:date].present? 
+    @services = []
+    policy_scope(Service).each do |service|
+      if service.start_time.strftime("%Y-%m-%d").include?(params[:date].first) 
+        @services << service
+      end
+   end
   else
     @services = policy_scope(Service)
   end
