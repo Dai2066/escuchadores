@@ -1,65 +1,60 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://assets1.drugstorenews.com/styles/hero/s3/2021-06/handshake-hero.jpg?itok=moVjH2S4);">
-<div class="container">
-  <h1  style="color: white">Mi perfil</h1>
-</div> 
+  <div class="container">
+    <h1  style="color: white">Mi perfil</h1>
+  </div> 
 </div>
 <br>
 <div class="d-flex justify-content-between flex-column align-items-center" >
-
   <h5>Mis citas actuales:</h5>
- <div class="col-md-6">
-          <div id="map" class="rounded border border-secondary"
-            style="width: 900px; height: 300px; margin-bottom: 20px"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-        </div>
-  <br> 
-  
-  <%# <% @assigned_to_user.each do |app| %> %>
+  <div class="col-md-6">
+    <div id="map" class="rounded border border-secondary"
+      style="width: 600px; height: 300px; margin-bottom: 20px"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
+  <br>
+  <div class="d-flex justify-content-between align-items-center flex-column">
+    <% assigned_to_user = Appointment.select {|app| app.user == current_user } %>
+    <% assigned_to_user.each do |app| %>
+      <div class="card mb-3 shadow p-3 bg-white rounded">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <%= cl_image_tag app.service.photo.key, class: "img-fluid rounded-start" %>  
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h6>Id del servicio: <%= app.service_id %></h6><h6>Id del usuario: <%= app.user_id %></h6>
+                <h6>Nombre del escuchador: <strong><%= app.user.first_name %>, <%= app.user.last_name %></h6></strong>
+                <h6>Descripción: <strong> <%= app.service.plan.capitalize %></h6> </strong>
+                <h6>Precio Pesos ARG, por hora: <strong>$ <%= app.service.price.to_i %></h6></strong>
+                <h6>Fecha: <strong><%= app.service.start_time.strftime('%a %d %b %Y') %></h6></strong>
+                <h6>Disponibilidad: <strong><%= app.service.duration.to_i %> hora(s)</h6></strong>
+                <h6>Lugar: <strong><%= app.service.place %></h6></strong>
+                <%= link_to "Borrar reserva", appointment_path(app.id), method: :delete, data: {confirm: "Está seguro que desea eliminar la reserva?"}, class:"btn btn-sm btn-danger mt-3" %>    
 
-  <% assigned_to_user = Appointment.select {|app| app.user == current_user } %>
-  <% assigned_to_user.each do |app| %>
-  
-   <div class="card mb-3 shadow p-3 bg-white  rounded w-50">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <%= cl_image_tag app.service.photo.key, class: "img-fluid rounded-start" %>  
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h6>Id del servicio: <%= app.service_id %></h6><h6>Id del usuario: <%= app.user_id %></h6>
-            <h6>Nombre del escuchador: <strong><%= app.user.first_name %>, <%= app.user.last_name %></h6></strong>
-            <h6>Descripción: <strong> <%= app.service.plan.capitalize %></h6> </strong>
-            <h6>Precio Pesos ARG, por hora: <strong>$ <%= app.service.price.to_i %></h6></strong>
-            <h6>Fecha: <strong><%= app.service.start_time.strftime('%a %d %b %Y') %></h6></strong>
-            <h6>Disponibilidad: <strong><%= app.service.duration.to_i %> hora(s)</h6></strong>
-            <h6>Lugar: <strong><%= app.service.place %></h6></strong>
-          </div>
-        </div>
-      </div>    
-        <div class="col-md-4">
-          <div id="map" class="rounded border border-secondary"
-            style="width: 100%; height: 300px"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+              </div>
+            </div>
+          </div>    
         </div>
       </div>
-      
-      <%= link_to "Borrar reserva", appointment_path(app.id), method: :delete, data: {confirm: "Está seguro que desea eliminar la reserva?"}, class:"btn btn-sm btn-danger" %>    
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <br>
 
-<!-- linea 2, >
 
 
-<!--
 
-    <h5>Haz click abajo para seguir viendo otros servicios disponibles.</h5>
-    <br>
-    <%= link_to "Volver al inicio!", root_path, class: "btn btn-gradient"%>
-</div>
-    <%= link_to "services", "services#index" %>
+
+
+
+
+
+
+
+
+
+
+
+
